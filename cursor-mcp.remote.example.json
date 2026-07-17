@@ -1,15 +1,16 @@
 {
   "mcpServers": {
     "kali-mcp-remote": {
-      "command": "python",
+      "command": "F:/diplo/trabajo-final/kali-mcp/.venv/Scripts/python.exe",
       "args": [
-        "-m",
-        "kali_mcp",
+        "F:/diplo/trabajo-final/kali-mcp/scripts/run_mcp_client.py",
         "--config",
         "F:/diplo/trabajo-final/kali-mcp/config/kali-mcp.config.json",
         "--remote",
-        "http://127.0.0.1:5000"
+        "http://127.0.0.1:5000",
+        "--no-warm-cache"
       ],
+      "cwd": "F:/diplo/trabajo-final/kali-mcp",
       "description": "Kali MCP via SSH tunnel (Windows Cursor -> Kali API)"
     }
   }

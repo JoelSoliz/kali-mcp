@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kali-mcp"
+version = "0.1.0"
+description = "Config-driven MCP server for Kali Linux pentesting tools"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "mcp>=1.0.0",
+    "flask>=3.0.0",
+    "requests>=2.31.0",
+]
+
+[project.scripts]
+kali-mcp = "kali_mcp.server:main"
+kali-mcp-api = "kali_mcp.api_server:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["kali_mcp*"]

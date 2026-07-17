@@ -137,6 +137,57 @@ python -m kali_mcp --config config/kali-mcp.config.json
 
 ### Cursor configuration
 
+Use `cursor-mcp.remote.example.json` as the template. **Important on Windows:**
+
+1. Use the **venv Python** absolute path, not `python`
+2. Use `scripts/run_mcp_client.py` (not `-m` with a folder path)
+3. Set `cwd` to the project root
+4. Keep the SSH tunnel open before starting MCP in Cursor
+
+```json
+{
+  "mcpServers": {
+    "kali-mcp-remote": {
+      "command": "F:/diplo/trabajo-final/kali-mcp/.venv/Scripts/python.exe",
+      "args": [
+        "F:/diplo/trabajo-final/kali-mcp/scripts/run_mcp_client.py",
+        "--config",
+        "F:/diplo/trabajo-final/kali-mcp/config/kali-mcp.config.json",
+        "--remote",
+        "http://127.0.0.1:5000",
+        "--no-warm-cache"
+      ],
+      "cwd": "F:/diplo/trabajo-final/kali-mcp"
+    }
+  }
+}
+```
+
+Install the package in your Windows venv once:
+
+```powershell
+cd F:\diplo\trabajo-final\kali-mcp
+python -m venv .venv
+.venv\Scripts\pip install -e .
+```
+
+### Troubleshooting Cursor MCP
+
+| Symptom | Fix |
+|---------|-----|
+| MCP server fails immediately | Wrong `-m` path. Use `scripts/run_mcp_client.py` instead of `-m F:/.../kali_mcp` |
+| `No module named kali_mcp` | Run `pip install -e .` in venv, or set `cwd` to project root |
+| Tools load but runs fail | SSH tunnel not active. Run `ssh -L 5000:127.0.0.1:5000 user@KALI_IP` |
+| Health check fails | On Kali: `curl http://127.0.0.1:5000/health` — API must bind `127.0.0.1:5000` |
+| Slow MCP startup | Add `--no-warm-cache` to args |
+
+Verify from Windows before opening Cursor:
+
+```powershell
+curl http://127.0.0.1:5000/health
+F:\diplo\trabajo-final\kali-mcp\.venv\Scripts\python.exe F:\diplo\trabajo-final\kali-mcp\scripts\run_mcp_client.py --help
+```
+
 Copy `cursor-mcp.example.json` into your Cursor MCP settings and adjust the `--config` path:
 
 ```json
