@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/joelsoliz/kali-mcp/kali-mcp.schema.json",
+  "title": "Kali MCP Configuration",
+  "description": "Declarative tool loading for the Kali MCP server (analogous to DAB entity configuration).",
+  "type": "object",
+  "required": ["tools"],
+  "properties": {
+    "server": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "version": { "type": "string" },
+        "description": { "type": "string" }
+      }
+    },
+    "defaults": {
+      "type": "object",
+      "properties": {
+        "timeout": { "type": "integer", "minimum": 1 },
+        "manPageSource": { "type": "boolean" },
+        "versionCheck": { "type": "boolean" },
+        "workingDirectory": { "type": "string" },
+        "environment": { "type": "object", "additionalProperties": { "type": "string" } }
+      }
+    },
+    "tools": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/tool" }
+    }
+  },
+  "$defs": {
+    "parameter": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "type": { "type": "string", "enum": ["string", "integer", "number", "boolean", "object", "array"] },
+        "required": { "type": "boolean" },
+        "default": {},
+        "argStyle": { "type": "string", "enum": ["positional", "flag", "kv", "long", "append"] },
+        "flag": { "type": "string" },
+        "position": { "type": "integer" }
+      }
+    },
+    "tool": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string" },
+        "binary": { "type": "string" },
+        "enabled": { "type": "boolean" },
+        "description": { "type": "string" },
+        "category": { "type": "string" },
+        "manPage": { "type": "string" },
+        "versionFlags": { "type": "array", "items": { "type": "string" } },
+        "timeout": { "type": "integer" },
+        "parameters": { "type": "array", "items": { "$ref": "#/$defs/parameter" } },
+        "fixedArgs": { "type": "array", "items": { "type": "string" } },
+        "allowAdditionalArgs": { "type": "boolean" },
+        "additionalArgsParam": { "type": "string" }
+      }
+    }
+  }
+}

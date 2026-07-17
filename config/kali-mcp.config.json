@@ -1,0 +1,198 @@
+{
+  "$schema": "./kali-mcp.schema.json",
+  "server": {
+    "name": "kali-mcp",
+    "version": "0.1.0",
+    "description": "Config-driven MCP server for Kali Linux pentesting tools. Tools are declared in JSON (DAB-style) and enriched at runtime with man pages and installed versions."
+  },
+  "defaults": {
+    "timeout": 300,
+    "manPageSource": true,
+    "versionCheck": true
+  },
+  "tools": [
+    {
+      "name": "nmap_scan",
+      "binary": "nmap",
+      "category": "reconnaissance",
+      "description": "Network mapper — port scanning, service/version detection, and host discovery.",
+      "manPage": "nmap",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "IP address, hostname, or CIDR range to scan",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        },
+        {
+          "name": "scan_type",
+          "description": "Scan type flags (e.g. -sV, -sC, -sS)",
+          "type": "string",
+          "default": "-sV",
+          "argStyle": "append"
+        },
+        {
+          "name": "ports",
+          "description": "Ports or ranges (passed as -p value)",
+          "type": "string",
+          "default": "",
+          "flag": "-p",
+          "argStyle": "kv"
+        }
+      ],
+      "fixedArgs": ["-T4", "-Pn"]
+    },
+    {
+      "name": "nikto_scan",
+      "binary": "nikto",
+      "category": "web",
+      "description": "Web server vulnerability scanner.",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Target host or URL",
+          "type": "string",
+          "required": true,
+          "flag": "-h",
+          "argStyle": "kv"
+        }
+      ]
+    },
+    {
+      "name": "wpscan_analyze",
+      "binary": "wpscan",
+      "category": "web",
+      "description": "WordPress vulnerability scanner — plugins, themes, users, and core.",
+      "parameters": [
+        {
+          "name": "url",
+          "description": "Target WordPress URL",
+          "type": "string",
+          "required": true,
+          "flag": "--url",
+          "argStyle": "kv"
+        }
+      ],
+      "fixedArgs": ["--no-update"]
+    },
+    {
+      "name": "gobuster_scan",
+      "binary": "gobuster",
+      "category": "web",
+      "description": "Directory, DNS, vhost, or fuzzing brute-force tool.",
+      "parameters": [
+        {
+          "name": "mode",
+          "description": "Gobuster mode: dir, dns, fuzz, or vhost",
+          "type": "string",
+          "default": "dir",
+          "argStyle": "positional",
+          "position": 0
+        },
+        {
+          "name": "url",
+          "description": "Target URL",
+          "type": "string",
+          "required": true,
+          "flag": "-u",
+          "argStyle": "kv"
+        },
+        {
+          "name": "wordlist",
+          "description": "Wordlist path",
+          "type": "string",
+          "default": "/usr/share/wordlists/dirb/common.txt",
+          "flag": "-w",
+          "argStyle": "kv"
+        }
+      ]
+    },
+    {
+      "name": "curl_request",
+      "binary": "curl",
+      "category": "web",
+      "description": "HTTP client for probing endpoints, headers, and responses.",
+      "parameters": [
+        {
+          "name": "url",
+          "description": "Target URL",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 0
+        },
+        {
+          "name": "include_headers",
+          "description": "Include response headers in output",
+          "type": "boolean",
+          "default": true,
+          "flag": "-i",
+          "argStyle": "flag"
+        },
+        {
+          "name": "method",
+          "description": "HTTP method",
+          "type": "string",
+          "default": "GET",
+          "flag": "-X",
+          "argStyle": "kv"
+        }
+      ],
+      "fixedArgs": ["-sS", "-L", "--max-time", "30"]
+    },
+    {
+      "name": "sslscan_probe",
+      "binary": "sslscan",
+      "category": "reconnaissance",
+      "description": "SSL/TLS cipher and certificate enumeration.",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Host:port or hostname",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 0
+        }
+      ]
+    },
+    {
+      "name": "whatweb_fingerprint",
+      "binary": "whatweb",
+      "category": "reconnaissance",
+      "description": "Web technology fingerprinting.",
+      "parameters": [
+        {
+          "name": "url",
+          "description": "Target URL",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 0
+        }
+      ],
+      "fixedArgs": ["-a", "3"]
+    },
+    {
+      "name": "run_command",
+      "binary": "bash",
+      "category": "utility",
+      "description": "Execute a validated shell command on the Kali host. Use only when no dedicated tool exists.",
+      "enabled": true,
+      "parameters": [
+        {
+          "name": "command",
+          "description": "Shell command to execute",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 0
+        }
+      ],
+      "allowAdditionalArgs": false,
+      "fixedArgs": ["-lc"]
+    }
+  ]
+}
