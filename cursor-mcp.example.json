@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "kali-mcp": {
+      "command": "python",
+      "args": [
+        "-m",
+        "kali_mcp",
+        "--config",
+        "F:/diplo/trabajo-final/kali-mcp/config/kali-mcp.config.json"
+      ],
+      "description": "Config-driven Kali Linux MCP server (UMSS pentest monografia)"
+    }
+  }
+}
