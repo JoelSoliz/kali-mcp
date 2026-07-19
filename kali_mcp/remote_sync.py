@@ -5,6 +5,7 @@ from __future__ import annotations
 import logging
 from typing import Any
 
+from kali_mcp.builtin_tools import ensure_builtin_tools
 from kali_mcp.remote_client import KaliApiClient
 from kali_mcp.schema import ServerConfig, parse_config
 
@@ -16,7 +17,7 @@ def load_config_from_remote(client: KaliApiClient) -> ServerConfig | None:
     if payload.get("error"):
         logger.error("Failed to load remote config: %s", payload["error"])
         return None
-    return parse_config(payload)
+    return ensure_builtin_tools(parse_config(payload))
 
 
 def build_remote_name_map(client: KaliApiClient) -> dict[str, str]:

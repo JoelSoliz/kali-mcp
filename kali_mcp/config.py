@@ -6,6 +6,7 @@ import json
 import logging
 from pathlib import Path
 
+from kali_mcp.builtin_tools import ensure_builtin_tools
 from kali_mcp.schema import ServerConfig, parse_config
 
 logger = logging.getLogger(__name__)
@@ -43,7 +44,7 @@ def load_config(explicit: str | None = None) -> tuple[ServerConfig, Path]:
     with path.open(encoding="utf-8") as handle:
         data = json.load(handle)
 
-    config = parse_config(data)
+    config = ensure_builtin_tools(parse_config(data))
     enabled = [t for t in config.tools if t.enabled]
     logger.info("Loaded %d tool(s) (%d enabled)", len(config.tools), len(enabled))
     return config, path

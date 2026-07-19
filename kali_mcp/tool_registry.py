@@ -177,6 +177,7 @@ def create_mcp_server(config: ServerConfig, registry: ToolRegistry) -> FastMCP:
         for tool in registry.enabled_tools():
             meta = registry.get_runtime_metadata(tool.name) or {}
             version_info = meta.get("version_info", {})
+            effective_timeout = tool.timeout or config.defaults.timeout
             tools_info.append(
                 {
                     "name": tool.name,
@@ -188,11 +189,14 @@ def create_mcp_server(config: ServerConfig, registry: ToolRegistry) -> FastMCP:
                     "version": version_info.get("version"),
                     "man_available": meta.get("man", {}).get("available", False),
                     "parameters": [p.name for p in tool.parameters],
+                    "timeout_seconds": effective_timeout,
+                    "supports_shell_chaining": tool.name == "run_command",
                 }
             )
         return {
             "server": config.name,
             "version": config.version,
+            "default_timeout_seconds": config.defaults.timeout,
             "tool_count": len(tools_info),
             "tools": tools_info,
         }
@@ -205,11 +209,14 @@ def create_mcp_server(config: ServerConfig, registry: ToolRegistry) -> FastMCP:
             return {"success": False, "error": f"Unknown tool: {tool_name}"}
 
         meta = registry.get_runtime_metadata(tool_name) or {}
+        effective_timeout = tool.timeout or config.defaults.timeout
         return {
             "success": True,
             "tool": tool_name,
             "binary": tool.binary,
             "configured_description": tool.description,
+            "timeout_seconds": effective_timeout,
+            "supports_shell_chaining": tool.name == "run_command",
             "parameters": [
                 {
                     "name": p.name,

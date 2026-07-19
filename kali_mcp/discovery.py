@@ -18,6 +18,7 @@ from kali_mcp.catalog import (
 )
 from kali_mcp.executor import run_command
 from kali_mcp.introspection import fetch_man_page, probe_version
+from kali_mcp.builtin_tools import ensure_builtin_tools
 from kali_mcp.schema import ParameterDef, ServerConfig, ToolDef, parse_config
 
 logger = logging.getLogger(__name__)
@@ -107,7 +108,7 @@ def build_config_from_discovery(
         existing_binaries.add(item.binary)
         existing_names.add(tool_def.name)
 
-    return config
+    return ensure_builtin_tools(config)
 
 
 def _build_discovered_tool(entry: CatalogEntry, path: str, source: str) -> DiscoveredTool:
