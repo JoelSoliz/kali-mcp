@@ -178,7 +178,8 @@ python -m venv .venv
 | MCP server fails immediately | Wrong `-m` path. Use `scripts/run_mcp_client.py` instead of `-m F:/.../kali_mcp` |
 | `No module named kali_mcp` | Run `pip install -e .` in venv, or set `cwd` to project root |
 | Tools load but runs fail | SSH tunnel not active. Run `ssh -L 5000:127.0.0.1:5000 user@KALI_IP` |
-| Health check fails | On Kali: `curl http://127.0.0.1:5000/health` — API must bind `127.0.0.1:5000` |
+| `404` on `/api/tools/nmap_scan/execute` | **Config mismatch.** Kali likely uses `kali-mcp.generated.json` (`nmap_run`) while Windows uses `kali-mcp.config.json` (`nmap_scan`). Fix: use the same config on Kali, or add `--use-remote-config` on Windows |
+| Health check fails | On Kali: `curl http://127.0.0.1:5000/health` — check `config_path` in response |
 | Slow MCP startup | Add `--no-warm-cache` to args |
 
 Verify from Windows before opening Cursor:

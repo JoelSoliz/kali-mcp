@@ -77,6 +77,7 @@ class ToolRegistry:
     def __init__(self, config: ServerConfig, backend: ExecutionBackend | None = None):
         self.config = config
         self.backend = backend or LocalBackend()
+        self.config_path: str | None = None
         self._runtime_cache: dict[str, dict[str, Any]] = {}
 
     def warm_cache(self) -> None:
@@ -102,6 +103,12 @@ class ToolRegistry:
     def find_tool(self, name: str) -> ToolDef | None:
         for tool in self.config.tools:
             if tool.name == name:
+                return tool
+        return None
+
+    def find_tool_by_binary(self, binary: str) -> ToolDef | None:
+        for tool in self.config.tools:
+            if tool.binary == binary and tool.enabled:
                 return tool
         return None
 

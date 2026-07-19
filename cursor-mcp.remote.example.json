@@ -8,6 +8,7 @@
         "F:/diplo/trabajo-final/kali-mcp/config/kali-mcp.config.json",
         "--remote",
         "http://127.0.0.1:5000",
+        "--use-remote-config",
         "--no-warm-cache"
       ],
       "cwd": "F:/diplo/trabajo-final/kali-mcp",

@@ -36,7 +36,7 @@ def resolve_config_path(explicit: str | None = None) -> Path:
     )
 
 
-def load_config(explicit: str | None = None) -> ServerConfig:
+def load_config(explicit: str | None = None) -> tuple[ServerConfig, Path]:
     path = resolve_config_path(explicit)
     logger.info("Loading configuration from %s", path)
 
@@ -46,4 +46,4 @@ def load_config(explicit: str | None = None) -> ServerConfig:
     config = parse_config(data)
     enabled = [t for t in config.tools if t.enabled]
     logger.info("Loaded %d tool(s) (%d enabled)", len(config.tools), len(enabled))
-    return config
+    return config, path

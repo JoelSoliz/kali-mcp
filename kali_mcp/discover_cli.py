@@ -97,7 +97,7 @@ def main() -> None:
     merge_config = None
     if args.merge:
         try:
-            merge_config = load_config(args.merge)
+            merge_config, _ = load_config(args.merge)
             logger.info("Merging with existing config: %s", args.merge)
         except FileNotFoundError as exc:
             logger.error("%s", exc)

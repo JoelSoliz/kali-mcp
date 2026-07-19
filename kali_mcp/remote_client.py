@@ -32,11 +32,27 @@ class KaliApiClient:
         url = f"{self.server_url}{path}"
         try:
             response = requests.post(url, json=payload, timeout=self.timeout)
+            if response.status_code == 404:
+                body = self._safe_json(response)
+                detail = body.get("error") if isinstance(body, dict) else response.text
+                return {
+                    "success": False,
+                    "error": detail or f"404 Not Found: {url}",
+                    "status_code": 404,
+                }
             response.raise_for_status()
             return response.json()
         except requests.RequestException as exc:
             logger.error("POST %s failed: %s", url, exc)
             return {"success": False, "error": str(exc)}
+
+    @staticmethod
+    def _safe_json(response: requests.Response) -> dict[str, Any]:
+        try:
+            data = response.json()
+            return data if isinstance(data, dict) else {}
+        except ValueError:
+            return {}
 
     def health(self) -> dict[str, Any]:
         return self._get("/health")
@@ -46,6 +62,9 @@ class KaliApiClient:
 
     def get_tool_metadata(self, tool_name: str) -> dict[str, Any]:
         return self._get(f"/api/tools/{tool_name}")
+
+    def get_config(self) -> dict[str, Any]:
+        return self._get("/api/config")
 
     def execute_tool(self, tool_name: str, arguments: dict[str, Any]) -> dict[str, Any]:
         return self._post(f"/api/tools/{tool_name}/execute", {"arguments": arguments})

@@ -1,0 +1,4999 @@
+{
+  "$schema": "./kali-mcp.schema.json",
+  "server": {
+    "name": "kali-mcp",
+    "version": "0.1.0",
+    "description": "Auto-generated Kali MCP configuration from installed tools."
+  },
+  "defaults": {
+    "timeout": 600,
+    "manPageSource": true,
+    "versionCheck": true
+  },
+  "tools": [
+    {
+      "name": "airtun_ng_run",
+      "binary": "airtun-ng",
+      "enabled": true,
+      "category": "exploitation",
+      "description": "airtun-ng creates a virtual tunnel interface (atX) for sending arbitrary IP packets by using raw ieee802.11 packet injection.",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "<SMAC>",
+          "type": "string",
+          "required": true,
+          "argStyle": "kv",
+          "flag": "-h"
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "hydra_run",
+      "binary": "hydra",
+      "enabled": true,
+      "category": "exploitation",
+      "description": "Hydra is a parallelized login cracker which supports numerous protocols to attack. New modules are easy to add, beside that, it is flexible and very fast.",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Target IP or hostname",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 0
+        },
+        {
+          "name": "service",
+          "description": "Service to attack (ssh, ftp, http-post-form, etc.)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 1
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "medusa_run",
+      "binary": "medusa",
+      "enabled": true,
+      "category": "exploitation",
+      "description": "Medusa is intended to be a speedy, massively parallel, modular, login brute-forcer. The goal is to support as many services which allow remote authentication as possible. The author considers following items to some of the key features o...",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "[TARGET]",
+          "type": "string",
+          "required": true,
+          "argStyle": "kv",
+          "flag": "-h"
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "msfconsole_run",
+      "binary": "msfconsole",
+      "enabled": true,
+      "category": "exploitation",
+      "description": "Metasploit Framework console",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "packetforge_ng_run",
+      "binary": "packetforge-ng",
+      "enabled": true,
+      "category": "exploitation",
+      "description": "packetforge-ng is a tool to create encrypted packets that can subsequently be used for injection. You may create various types of packets such as arp requests, UDP, ICMP and custom packets. The most common use is to create ARP requests f...",
+      "parameters": [
+        {
+          "name": "p",
+          "description": "<fctrl>",
+          "type": "string",
+          "required": true,
+          "argStyle": "kv",
+          "flag": "-p"
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "searchsploit_run",
+      "binary": "searchsploit",
+      "enabled": true,
+      "category": "exploitation",
+      "description": "Allow you to search through exploits and shellcodes using one or more terms from Exploit-DB",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Show this help screen.",
+          "type": "string",
+          "required": true,
+          "argStyle": "kv",
+          "flag": "-h"
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "sqlmapapi_run",
+      "binary": "sqlmapapi",
+      "enabled": true,
+      "category": "exploitation",
+      "description": "sqlmapapi - automatic SQL injection tool, api server",
+      "parameters": [
+        {
+          "name": "H",
+          "description": "HOST, --host=HOST",
+          "type": "string",
+          "required": true,
+          "argStyle": "kv",
+          "flag": "-H"
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "binwalk_run",
+      "binary": "binwalk",
+      "enabled": true,
+      "category": "forensics",
+      "description": "Binwalk v2.3.2+dcb1403 Craig Heffner, ReFirmLabs https://github.com/ReFirmLabs/binwalk",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target inferred from tool synopsis",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "exiftool_run",
+      "binary": "exiftool",
+      "enabled": true,
+      "category": "forensics",
+      "description": "A command-line interface to Image::ExifTool, used for reading and writing meta information in a variety of file types. FILE is one or more source file names, directory names, or \"-\" for the standard input. Metadata is read from source fi...",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "(-htmlFormat) Use HTML formatting for output",
+          "type": "string",
+          "required": true,
+          "argStyle": "kv",
+          "flag": "-h"
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "tool_7z2john_run",
+      "binary": "7z2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: 7z2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "dpapimk2john_run",
+      "binary": "DPAPImk2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: DPAPImk2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "sipdump_run",
+      "binary": "SIPdump",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: SIPdump",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "adxcsouf2john_run",
+      "binary": "adxcsouf2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: adxcsouf2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "aem2john_run",
+      "binary": "aem2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: aem2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "airodump_ng_oui_update_run",
+      "binary": "airodump-ng-oui-update",
+      "enabled": true,
+      "category": "general",
+      "description": "airodump-ng-oui-updater downloads and parses IEEE OUI list.",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target inferred from tool synopsis",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "aix2john_run",
+      "binary": "aix2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: aix2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "andotp2john_run",
+      "binary": "andotp2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: andotp2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "androidbackup2john_run",
+      "binary": "androidbackup2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: androidbackup2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "androidfde2john_run",
+      "binary": "androidfde2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: androidfde2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "ansible2john_run",
+      "binary": "ansible2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: ansible2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "apex2john_run",
+      "binary": "apex2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: apex2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "applenotes2john_run",
+      "binary": "applenotes2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: applenotes2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "aruba2john_run",
+      "binary": "aruba2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: aruba2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "atmail2john_run",
+      "binary": "atmail2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: atmail2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "axcrypt2john_run",
+      "binary": "axcrypt2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: axcrypt2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "base64conv_run",
+      "binary": "base64conv",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: base64conv",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "bestcrypt2john_run",
+      "binary": "bestcrypt2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: bestcrypt2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "bitcoin2john_run",
+      "binary": "bitcoin2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: bitcoin2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "bitlocker2john_run",
+      "binary": "bitlocker2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: bitlocker2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "bitshares2john_run",
+      "binary": "bitshares2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: bitshares2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "bitwarden2john_run",
+      "binary": "bitwarden2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: bitwarden2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "bks2john_run",
+      "binary": "bks2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: bks2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "blockchain2john_run",
+      "binary": "blockchain2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: blockchain2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "calc_stat_run",
+      "binary": "calc_stat",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: calc_stat",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "ccache2john_run",
+      "binary": "ccache2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: ccache2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "cisco2john_run",
+      "binary": "cisco2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: cisco2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "cprepair_run",
+      "binary": "cprepair",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: cprepair",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "cracf2john_run",
+      "binary": "cracf2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: cracf2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "dashlane2john_run",
+      "binary": "dashlane2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: dashlane2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "deepsound2john_run",
+      "binary": "deepsound2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: deepsound2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "dirb_gendict_run",
+      "binary": "dirb-gendict",
+      "enabled": true,
+      "category": "general",
+      "description": "DIRB-GENDICT is an incremental dictionary generator.",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "<pattern>",
+          "type": "string",
+          "required": true,
+          "argStyle": "kv",
+          "flag": "-h"
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "dirbuster_run",
+      "binary": "dirbuster",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: dirbuster",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "diskcryptor2john_run",
+      "binary": "diskcryptor2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: diskcryptor2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "dmg2john_run",
+      "binary": "dmg2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: dmg2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "eapmd5tojohn_run",
+      "binary": "eapmd5tojohn",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: eapmd5tojohn",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "ecryptfs2john_run",
+      "binary": "ecryptfs2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: ecryptfs2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "ejabberd2john_run",
+      "binary": "ejabberd2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: ejabberd2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "electrum2john_run",
+      "binary": "electrum2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: electrum2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "encfs2john_run",
+      "binary": "encfs2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: encfs2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "enpass2john_run",
+      "binary": "enpass2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: enpass2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "enpass5tojohn_run",
+      "binary": "enpass5tojohn",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: enpass5tojohn",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "ethereum2john_run",
+      "binary": "ethereum2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: ethereum2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "filezilla2john_run",
+      "binary": "filezilla2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: filezilla2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "geli2john_run",
+      "binary": "geli2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: geli2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "genmkvpwd_run",
+      "binary": "genmkvpwd",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: genmkvpwd",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "gpg2john_run",
+      "binary": "gpg2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: gpg2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "hccap2john_run",
+      "binary": "hccap2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: hccap2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "hccapx2john_run",
+      "binary": "hccapx2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: hccapx2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "htdigest2john_run",
+      "binary": "htdigest2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: htdigest2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "html2dic_run",
+      "binary": "html2dic",
+      "enabled": true,
+      "category": "general",
+      "description": "html2dic extract all words from an HTML page, generating a dictionary of all word found, one word per line. Output is printed on stdout.",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target inferred from tool synopsis",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "ios7tojohn_run",
+      "binary": "ios7tojohn",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: ios7tojohn",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "itunes_backup2john_run",
+      "binary": "itunes_backup2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: itunes_backup2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "iwork2john_run",
+      "binary": "iwork2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: iwork2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "kdcdump2john_run",
+      "binary": "kdcdump2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: kdcdump2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "keepass2john_run",
+      "binary": "keepass2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: keepass2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "keychain2john_run",
+      "binary": "keychain2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: keychain2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "keyring2john_run",
+      "binary": "keyring2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: keyring2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "keystore2john_run",
+      "binary": "keystore2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: keystore2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "kirbi2john_run",
+      "binary": "kirbi2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: kirbi2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "known_hosts2john_run",
+      "binary": "known_hosts2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: known_hosts2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "krb2john_run",
+      "binary": "krb2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: krb2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "kwallet2john_run",
+      "binary": "kwallet2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: kwallet2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "lastpass2john_run",
+      "binary": "lastpass2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: lastpass2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "ldif2john_run",
+      "binary": "ldif2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: ldif2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "libreoffice2john_run",
+      "binary": "libreoffice2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: libreoffice2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "lion2john_run",
+      "binary": "lion2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: lion2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "lotus2john_run",
+      "binary": "lotus2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: lotus2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "luks2john_run",
+      "binary": "luks2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: luks2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "mac2john_run",
+      "binary": "mac2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: mac2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "mcafee_epo2john_run",
+      "binary": "mcafee_epo2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: mcafee_epo2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "mkvcalcproba_run",
+      "binary": "mkvcalcproba",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: mkvcalcproba",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "mmdbresolve_run",
+      "binary": "mmdbresolve",
+      "enabled": true,
+      "category": "general",
+      "description": "mmdbresolve reads IPv4 and IPv6 addresses on stdin and prints their IP geolocation information on stdout. Each input line must contain exactly one address. Output is in INI format, with a section delimiter named after the query address f...",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target inferred from tool synopsis",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "monero2john_run",
+      "binary": "monero2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: monero2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "money2john_run",
+      "binary": "money2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: money2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "mosquitto2john_run",
+      "binary": "mosquitto2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: mosquitto2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "mozilla2john_run",
+      "binary": "mozilla2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: mozilla2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "multibit2john_run",
+      "binary": "multibit2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: multibit2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "neo2john_run",
+      "binary": "neo2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: neo2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "office2john_run",
+      "binary": "office2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: office2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "openbsd_softraid2john_run",
+      "binary": "openbsd_softraid2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: openbsd_softraid2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "openssl2john_run",
+      "binary": "openssl2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: openssl2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "padlock2john_run",
+      "binary": "padlock2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: padlock2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "pdf2john_run",
+      "binary": "pdf2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: pdf2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "pem2john_run",
+      "binary": "pem2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: pem2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "pfx2john_run",
+      "binary": "pfx2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: pfx2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "pgpdisk2john_run",
+      "binary": "pgpdisk2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: pgpdisk2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "pgpsda2john_run",
+      "binary": "pgpsda2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: pgpsda2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "pgpwde2john_run",
+      "binary": "pgpwde2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: pgpwde2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "prosody2john_run",
+      "binary": "prosody2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: prosody2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "ps_token2john_run",
+      "binary": "ps_token2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: ps_token2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "pse2john_run",
+      "binary": "pse2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: pse2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "putty2john_run",
+      "binary": "putty2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: putty2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "pwsafe2john_run",
+      "binary": "pwsafe2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: pwsafe2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "racf2john_run",
+      "binary": "racf2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: racf2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "radius2john_run",
+      "binary": "radius2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: radius2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "rar2john_run",
+      "binary": "rar2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: rar2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "raw2dyna_run",
+      "binary": "raw2dyna",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: raw2dyna",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "replay_run",
+      "binary": "replay",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: replay",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "responder_browserlistener_run",
+      "binary": "responder-BrowserListener",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: responder-BrowserListener",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "responder_dhcp_auto_run",
+      "binary": "responder-DHCP_Auto",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: responder-DHCP_Auto",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "responder_findsqlsrv_run",
+      "binary": "responder-FindSQLSrv",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: responder-FindSQLSrv",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "responder_icmp_redirect_run",
+      "binary": "responder-Icmp-Redirect",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: responder-Icmp-Redirect",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "responder_runfinger_run",
+      "binary": "responder-RunFinger",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: responder-RunFinger",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "restfulharvest_run",
+      "binary": "restfulHarvest",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: restfulHarvest",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "restic2john_run",
+      "binary": "restic2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: restic2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "sap2john_run",
+      "binary": "sap2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: sap2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "sense2john_run",
+      "binary": "sense2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: sense2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "sharkd_run",
+      "binary": "sharkd",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: sharkd",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "signal2john_run",
+      "binary": "signal2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: signal2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "sipdump2john_run",
+      "binary": "sipdump2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: sipdump2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "ssh2john_run",
+      "binary": "ssh2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: ssh2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "sspr2john_run",
+      "binary": "sspr2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: sspr2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "staroffice2john_run",
+      "binary": "staroffice2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: staroffice2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "strip2john_run",
+      "binary": "strip2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: strip2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "telegram2john_run",
+      "binary": "telegram2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: telegram2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "tezos2john_run",
+      "binary": "tezos2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: tezos2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "tgtsnarf_run",
+      "binary": "tgtsnarf",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: tgtsnarf",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "theharvester_run",
+      "binary": "theHarvester",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: theHarvester",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "truecrypt2john_run",
+      "binary": "truecrypt2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: truecrypt2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "uaf2john_run",
+      "binary": "uaf2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: uaf2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "undrop_run",
+      "binary": "undrop",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: undrop",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "vdi2john_run",
+      "binary": "vdi2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: vdi2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "vmx2john_run",
+      "binary": "vmx2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: vmx2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "zed2john_run",
+      "binary": "zed2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: zed2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "zip2john_run",
+      "binary": "zip2john",
+      "enabled": true,
+      "category": "general",
+      "description": "Installed tool: zip2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "tool_1password2john_run",
+      "binary": "1password2john",
+      "enabled": true,
+      "category": "passwords",
+      "description": "Installed tool: 1password2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "airdecloak_ng_run",
+      "binary": "airdecloak-ng",
+      "enabled": true,
+      "category": "passwords",
+      "description": "airuncloak-ng is a tool that removes wep cloaking from a pcap file. Some WIPS (actually one) can actively \"prevent\" cracking a WEP key by inserting chaff (fake wep frames) in the air to fool aircrack-ng. In some rare cases, cloaking fail...",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target inferred from tool synopsis",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "airolib_ng_run",
+      "binary": "airolib-ng",
+      "enabled": true,
+      "category": "passwords",
+      "description": "airolib-ng is a tool for the aircrack-ng suite to store and manage essid and password lists, compute their Pairwise Master Keys (PMKs) and use them in WPA/WPA2 cracking. The program uses the lightweight SQLite3 database as the storage me...",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target inferred from tool synopsis",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "cewl_run",
+      "binary": "cewl",
+      "enabled": true,
+      "category": "passwords",
+      "description": "CeWL (Custom Word List generator) is a ruby app which spiders a given URL, up to a specified depth, and returns a list of words which can then be used for password crackers such as John the Ripper. Optionally, CeWL can fol‐ low external...",
+      "parameters": [
+        {
+          "name": "url",
+          "description": "<agent>",
+          "type": "string",
+          "required": true,
+          "argStyle": "kv",
+          "flag": "-u"
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "crunch_run",
+      "binary": "crunch",
+      "enabled": true,
+      "category": "passwords",
+      "description": "Crunch can create a wordlist based on criteria you specify. The output from crunch can be sent to the screen, file, or to another program. The required parameters are:",
+      "parameters": [
+        {
+          "name": "p",
+          "description": "charset OR -p word1 word2 ...",
+          "type": "string",
+          "required": true,
+          "argStyle": "kv",
+          "flag": "-p"
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "dcrack_run",
+      "binary": "dcrack",
+      "enabled": true,
+      "category": "passwords",
+      "description": "Installed tool: dcrack",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "hash_identifier_run",
+      "binary": "hash-identifier",
+      "enabled": true,
+      "category": "passwords",
+      "description": "Hash type identifier",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "hashcat_run",
+      "binary": "hashcat",
+      "enabled": true,
+      "category": "passwords",
+      "description": "Hashcat is the world’s fastest CPU-based password recovery tool.",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target inferred from tool synopsis",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "hydra_wizard_run",
+      "binary": "hydra-wizard",
+      "enabled": true,
+      "category": "passwords",
+      "description": "This script guide users to use hydra, with a simple wizard that will make the necessary questions to launch hydra from command line a fast and easily 1. The wizard ask for the service to attack 2. The target to attack 3. The username o f...",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target inferred from tool synopsis",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_get_gpppassword_run",
+      "binary": "impacket-Get-GPPPassword",
+      "enabled": true,
+      "category": "passwords",
+      "description": "Installed tool: impacket-Get-GPPPassword",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "john_run",
+      "binary": "john",
+      "enabled": true,
+      "category": "passwords",
+      "description": "This manual page documents briefly the john command. This manual page was written for the Debian GNU/Linux distribution because the original program does not have a manual page. john, better known as John the Ripper, is a tool to find we...",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target inferred from tool synopsis",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "mailer_run",
+      "binary": "mailer",
+      "enabled": true,
+      "category": "passwords",
+      "description": "This manual page documents briefly the mailer command, which is part of the john package. This manual page was written for the Debian GNU/Linux distribution because the original program does not have a manual page. john, better known as...",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target inferred from tool synopsis",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "pw_inspector_run",
+      "binary": "pw-inspector",
+      "enabled": true,
+      "category": "passwords",
+      "description": "PW-Inspector reads passwords in and prints those which meet the requirements. The return code is the number of valid passwords found, 0 if none was found. Use for security: check passwords, if 0 is returned, reject pass‐ word choice. Use...",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target inferred from tool synopsis",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "unafs_run",
+      "binary": "unafs",
+      "enabled": true,
+      "category": "passwords",
+      "description": "This manual page documents briefly the unafs command, which is part of the john package. This manual page was written for the Debian GNU/Linux distribution because the original program does not have a manual page. john, better known as J...",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target inferred from tool synopsis",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "unique_run",
+      "binary": "unique",
+      "enabled": true,
+      "category": "passwords",
+      "description": "This manual page documents briefly the unique command, which is part of the john package. This manual page was written for the Debian GNU/Linux distribution because the original program does not have a manual page. john, better known as...",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target inferred from tool synopsis",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "unshadow_run",
+      "binary": "unshadow",
+      "enabled": true,
+      "category": "passwords",
+      "description": "This manual page documents briefly the unshadow command, which is part of the john package. This manual page was written for the Debian GNU/Linux distribution because the original program does not have a manual page. john, better known a...",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target inferred from tool synopsis",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "xhydra_run",
+      "binary": "xhydra",
+      "enabled": true,
+      "category": "passwords",
+      "description": "Hydra is a parallelized login cracker which supports numerous protocols to attack. New modules are easy to add, beside that, it is flexible and very fast.",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target inferred from tool synopsis",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "airserv_ng_run",
+      "binary": "airserv-ng",
+      "enabled": true,
+      "category": "reconnaissance",
+      "description": "airserv-ng is a wireless card server which allows multiple wireless application programs to independently use a wireless card via a client-server TCP network connection. All operating system and wireless card driver spe‐ cific code is in...",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Shows the help screen.",
+          "type": "string",
+          "required": true,
+          "argStyle": "kv",
+          "flag": "-h"
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "besside_ng_run",
+      "binary": "besside-ng",
+      "enabled": true,
+      "category": "reconnaissance",
+      "description": "besside-ng is a tool which will crack all the WEP networks in range and log all the WPA handshakes. WPA handshakes can be uploaded to the online cracking service at wpa.darkircop.org. Wpa.darkircop.com also provides use‐ ful statistics b...",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target inferred from tool synopsis",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "buddy_ng_run",
+      "binary": "buddy-ng",
+      "enabled": true,
+      "category": "reconnaissance",
+      "description": "buddy-ng server echoes back the decrypted packets to the system running easside-ng in order to access the wireless network without knowing the WEP key. It is done by having the AP itself decrypt the packets. When ran, it automatically st...",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Shows the help screen.",
+          "type": "string",
+          "required": true,
+          "argStyle": "kv",
+          "flag": "-h"
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "dig_run",
+      "binary": "dig",
+      "enabled": true,
+      "category": "reconnaissance",
+      "description": "dig is a flexible tool for interrogating DNS name servers. It performs DNS lookups and displays the answers that are returned from the name server(s) that were queried. Most DNS administrators use dig to troubleshoot DNS problems because...",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Print a usage summary.",
+          "type": "string",
+          "required": true,
+          "argStyle": "kv",
+          "flag": "-h"
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "dpl4hydra_run",
+      "binary": "dpl4hydra",
+      "enabled": true,
+      "category": "reconnaissance",
+      "description": "This script allow generate list with the default passwords of of the main vendors of network devices (BRAND) like: 2wire, 360systems, 3com, 3m, acc, acceleratednetworks, accton, aceex, acer, actiontec, adaptecraid, adc, ad‐ ckentrox, adc...",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target inferred from tool synopsis",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "easside_ng_run",
+      "binary": "easside-ng",
+      "enabled": true,
+      "category": "reconnaissance",
+      "description": "easside-ng is an auto-magic tool which allows you to communicate via an WEP-encrypted access point (AP) without knowing the WEP key. It first identifies a network, then proceeds to associate with it, obtain PRGA (pseudo random generation...",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Shows the help screen.",
+          "type": "string",
+          "required": true,
+          "argStyle": "kv",
+          "flag": "-h"
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "host_run",
+      "binary": "host",
+      "enabled": true,
+      "category": "reconnaissance",
+      "description": "host is a simple utility for performing DNS lookups. It is normally used to convert names to IP addresses and vice versa. When no arguments or options are given, host prints a short summary of its command-line arguments and options.",
+      "parameters": [
+        {
+          "name": "p",
+          "description": "port",
+          "type": "string",
+          "required": true,
+          "argStyle": "kv",
+          "flag": "-p"
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "ibmiscanner2john_run",
+      "binary": "ibmiscanner2john",
+      "enabled": true,
+      "category": "reconnaissance",
+      "description": "Installed tool: ibmiscanner2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "ikescan2john_run",
+      "binary": "ikescan2john",
+      "enabled": true,
+      "category": "reconnaissance",
+      "description": "Installed tool: ikescan2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "masscan_run",
+      "binary": "masscan",
+      "enabled": true,
+      "category": "reconnaissance",
+      "description": "masscan is an Internet-scale port scanner, useful for large scale surveys of the Internet, or of internal networks. While the default transmit rate is only 100 packets/second, it can optional go as fast as 25 million pack‐ ets/second, a...",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target inferred from tool synopsis",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "nmap_run",
+      "binary": "nmap",
+      "enabled": true,
+      "category": "reconnaissance",
+      "description": "Nmap (“Network Mapper”) is an open source tool for network exploration and security auditing. It was designed to rapidly scan large networks, although it works fine against single hosts. Nmap uses raw IP packets in novel ways to determin...",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "IP address, hostname, or CIDR range to scan",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        },
+        {
+          "name": "scan_type",
+          "description": "Scan type flags (e.g. -sV, -sC, -sS)",
+          "type": "string",
+          "required": false,
+          "argStyle": "append",
+          "default": "-sV"
+        },
+        {
+          "name": "ports",
+          "description": "Ports or ranges (passed as -p value)",
+          "type": "string",
+          "required": false,
+          "argStyle": "kv",
+          "flag": "-p"
+        }
+      ],
+      "allowAdditionalArgs": true,
+      "fixedArgs": [
+        "-T4",
+        "-Pn"
+      ]
+    },
+    {
+      "name": "recon_cli_run",
+      "binary": "recon-cli",
+      "enabled": true,
+      "category": "reconnaissance",
+      "description": "If external shell scripting is preferred, recon-cli makes all of the functionality of the Recon-ng framework accessible from the command line.",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target inferred from tool synopsis",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "recon_ng_run",
+      "binary": "recon-ng",
+      "enabled": true,
+      "category": "reconnaissance",
+      "description": "Recon-ng is a full-featured reconnaissance framework designed with the goal of providing a powerful environment to conduct open source web-based reconnaissance quickly and thoroughly.",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target inferred from tool synopsis",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "sslscan_run",
+      "binary": "sslscan",
+      "enabled": true,
+      "category": "reconnaissance",
+      "description": "sslscan queries SSL/TLS services (such as HTTPS) and reports the protocol versions, cipher suites, key exchanges, signature algorithms, and certificates in use. This helps the user understand which parameters are weak from a security sta...",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target inferred from tool synopsis",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "theharvester_run_2",
+      "binary": "theharvester",
+      "enabled": true,
+      "category": "reconnaissance",
+      "description": "OSINT email and subdomain harvester",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "tkiptun_ng_run",
+      "binary": "tkiptun-ng",
+      "enabled": true,
+      "category": "reconnaissance",
+      "description": "tkiptun-ng is a tool created by Martin Beck aka hirte, a member of aircrack-ng team. This tool is able to inject a few frames into a WPA TKIP network with QoS. He worked with Erik Tews (who created PTW attack) for a confer‐ ence in PacSe...",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target inferred from tool synopsis",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "wesside_ng_run",
+      "binary": "wesside-ng",
+      "enabled": true,
+      "category": "reconnaissance",
+      "description": "wesside-ng is an auto-magic tool which incorporates a number of techniques to seamlessly obtain a WEP key in minutes. It first identifies a network, then proceeds to associate with it, obtain PRGA (pseudo random generation algorithm) xor...",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Shows the help screen.",
+          "type": "string",
+          "required": true,
+          "argStyle": "kv",
+          "flag": "-h"
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "whatweb_run",
+      "binary": "whatweb",
+      "enabled": true,
+      "category": "reconnaissance",
+      "description": "WhatWeb identifies websites. It's goal is to answer the question, \"What is that Website?\". WhatWeb recognises web technologies including content management systems (CMS), blogging platforms, statistic/analytics packages, JavaScript libra...",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target inferred from tool synopsis",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true,
+      "fixedArgs": [
+        "-a",
+        "3"
+      ]
+    },
+    {
+      "name": "whois_run",
+      "binary": "whois",
+      "enabled": true,
+      "category": "reconnaissance",
+      "description": "whois searches for an object in a RFC 3912 database.",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "HOST, --host=HOST Connect to HOST.",
+          "type": "string",
+          "required": true,
+          "argStyle": "kv",
+          "flag": "-h"
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "capinfos_run",
+      "binary": "capinfos",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Capinfos is a program that reads one or more capture files and returns some or all available statistics (infos) of each <infile> in one of two types of output formats: long or table.",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target inferred from tool synopsis",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "captype_run",
+      "binary": "captype",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Captype is a program that opens one or more capture files and prints the capture file type of each <infile>.",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target inferred from tool synopsis",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "dumpcap_run",
+      "binary": "dumpcap",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Dumpcap is a network traffic dump tool. It lets you capture packet data from a live network and write the packets to a file. Dumpcap's default capture file format is pcapng format. When the -P option is specified, the output file is writ...",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target inferred from tool synopsis",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "editcap_run",
+      "binary": "editcap",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Editcap is a program that reads some or all of the captured packets from the infile, optionally converts them in various ways and writes the resulting packets to the capture outfile (or outfiles).",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target inferred from tool synopsis",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_dumpntlminfo_run",
+      "binary": "impacket-DumpNTLMInfo",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Installed tool: impacket-DumpNTLMInfo",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_getadusers_run",
+      "binary": "impacket-GetADUsers",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Installed tool: impacket-GetADUsers",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_getnpusers_run",
+      "binary": "impacket-GetNPUsers",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Installed tool: impacket-GetNPUsers",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_getuserspns_run",
+      "binary": "impacket-GetUserSPNs",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Installed tool: impacket-GetUserSPNs",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_addcomputer_run",
+      "binary": "impacket-addcomputer",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Installed tool: impacket-addcomputer",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_atexec_run",
+      "binary": "impacket-atexec",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Installed tool: impacket-atexec",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_changepasswd_run",
+      "binary": "impacket-changepasswd",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Installed tool: impacket-changepasswd",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_dcomexec_run",
+      "binary": "impacket-dcomexec",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Installed tool: impacket-dcomexec",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_dpapi_run",
+      "binary": "impacket-dpapi",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Installed tool: impacket-dpapi",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_esentutl_run",
+      "binary": "impacket-esentutl",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Installed tool: impacket-esentutl",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_exchanger_run",
+      "binary": "impacket-exchanger",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Installed tool: impacket-exchanger",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_finddelegation_run",
+      "binary": "impacket-findDelegation",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Installed tool: impacket-findDelegation",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_getarch_run",
+      "binary": "impacket-getArch",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Installed tool: impacket-getArch",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_getpac_run",
+      "binary": "impacket-getPac",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Installed tool: impacket-getPac",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_getst_run",
+      "binary": "impacket-getST",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Installed tool: impacket-getST",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_gettgt_run",
+      "binary": "impacket-getTGT",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Installed tool: impacket-getTGT",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_goldenpac_run",
+      "binary": "impacket-goldenPac",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Installed tool: impacket-goldenPac",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_keylistattack_run",
+      "binary": "impacket-keylistattack",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Installed tool: impacket-keylistattack",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_kintercept_run",
+      "binary": "impacket-kintercept",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Installed tool: impacket-kintercept",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_lookupsid_run",
+      "binary": "impacket-lookupsid",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Installed tool: impacket-lookupsid",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_machine_role_run",
+      "binary": "impacket-machine_role",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Installed tool: impacket-machine_role",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_mimikatz_run",
+      "binary": "impacket-mimikatz",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Installed tool: impacket-mimikatz",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_mqtt_check_run",
+      "binary": "impacket-mqtt_check",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Installed tool: impacket-mqtt_check",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_mssqlclient_run",
+      "binary": "impacket-mssqlclient",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Installed tool: impacket-mssqlclient",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_mssqlinstance_run",
+      "binary": "impacket-mssqlinstance",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Installed tool: impacket-mssqlinstance",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_net_run",
+      "binary": "impacket-net",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Installed tool: impacket-net",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_nmapanswermachine_run",
+      "binary": "impacket-nmapAnswerMachine",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Installed tool: impacket-nmapAnswerMachine",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_ntfs_read_run",
+      "binary": "impacket-ntfs-read",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Installed tool: impacket-ntfs-read",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_ntlmrelayx_run",
+      "binary": "impacket-ntlmrelayx",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Installed tool: impacket-ntlmrelayx",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_ping_run",
+      "binary": "impacket-ping",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Installed tool: impacket-ping",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_ping6_run",
+      "binary": "impacket-ping6",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Installed tool: impacket-ping6",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_raisechild_run",
+      "binary": "impacket-raiseChild",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Installed tool: impacket-raiseChild",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_rbcd_run",
+      "binary": "impacket-rbcd",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Installed tool: impacket-rbcd",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_rdp_check_run",
+      "binary": "impacket-rdp_check",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Installed tool: impacket-rdp_check",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_reg_run",
+      "binary": "impacket-reg",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Installed tool: impacket-reg",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_registry_read_run",
+      "binary": "impacket-registry-read",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Installed tool: impacket-registry-read",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_services_run",
+      "binary": "impacket-services",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Installed tool: impacket-services",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_sniff_run",
+      "binary": "impacket-sniff",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Installed tool: impacket-sniff",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_sniffer_run",
+      "binary": "impacket-sniffer",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Installed tool: impacket-sniffer",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_split_run",
+      "binary": "impacket-split",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Installed tool: impacket-split",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_ticketconverter_run",
+      "binary": "impacket-ticketConverter",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Installed tool: impacket-ticketConverter",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_ticketer_run",
+      "binary": "impacket-ticketer",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Installed tool: impacket-ticketer",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_tstool_run",
+      "binary": "impacket-tstool",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Installed tool: impacket-tstool",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_wmipersist_run",
+      "binary": "impacket-wmipersist",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Installed tool: impacket-wmipersist",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_wmiquery_run",
+      "binary": "impacket-wmiquery",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Installed tool: impacket-wmiquery",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "ivstools_run",
+      "binary": "ivstools",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "ivstools is a tool designed to extract ivs (initialization vectors) from a pcap dump to an ivs file and it can also merge several ivs (initialization vectors) files into one..",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target inferred from tool synopsis",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "mergecap_run",
+      "binary": "mergecap",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Mergecap is a program that combines multiple saved capture files into a single output file specified by the -w argument. Mergecap knows how to read pcap and pcapng capture files, including those of tcpdump, Wireshark and other tools that...",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target inferred from tool synopsis",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "pcap2john_run",
+      "binary": "pcap2john",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Installed tool: pcap2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "randpkt_run",
+      "binary": "randpkt",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "randpkt is a small utility that creates a trace file full of random packets.",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "<type>",
+          "type": "string",
+          "required": true,
+          "argStyle": "kv",
+          "flag": "-t"
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "rawshark_run",
+      "binary": "rawshark",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Rawshark reads a stream of packets from a file or pipe, and prints a line describing its output, followed by a set of matching fields for each packet on stdout.",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target inferred from tool synopsis",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "reordercap_run",
+      "binary": "reordercap",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Reordercap is a program that reads an input capture file and rewrites the frames to an output capture file, but with the frames sorted by increasing timestamp.",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target inferred from tool synopsis",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "tcpdump_run",
+      "binary": "tcpdump",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Tcpdump prints out a description of the contents of packets on a network interface that match the Boolean expression (see pcap-filter(7) for the expression syntax); the description is preceded by a time stamp, printed, by default, as hou...",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target inferred from tool synopsis",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "text2pcap_run",
+      "binary": "text2pcap",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Text2pcap is a program that reads in an ASCII hex dump and writes the data described into a capture file. text2pcap can read hexdumps with multiple packets in them, and build a capture file of multiple packets. Text2pcap is also capable...",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target inferred from tool synopsis",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "tshark_run",
+      "binary": "tshark",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "TShark is a network protocol analyzer. It lets you capture packet data from a live network, or read packets from a previously saved capture file, either printing a decoded form of those packets to the standard output or writing the packe...",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target inferred from tool synopsis",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "vncpcap2john_run",
+      "binary": "vncpcap2john",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Installed tool: vncpcap2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "wireshark_run",
+      "binary": "wireshark",
+      "enabled": true,
+      "category": "sniffing",
+      "description": "Wireshark is a GUI network protocol analyzer. It lets you interactively browse packet data from a live network or from a previously saved capture file. Wireshark's native capture file formats are pcapng format and pcap format; it can rea...",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target inferred from tool synopsis",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "airbase_ng_run",
+      "binary": "airbase-ng",
+      "enabled": true,
+      "category": "utility",
+      "description": "airbase-ng is multi-purpose tool aimed at attacking clients as opposed to the Access Point (AP) itself. Since it is so versatile and flexible, summarizing it is a challenge. Here are some of the feature highlights:",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "<MAC>",
+          "type": "string",
+          "required": true,
+          "argStyle": "kv",
+          "flag": "-h"
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "kstats_run",
+      "binary": "kstats",
+      "enabled": true,
+      "category": "utility",
+      "description": "kstats is a tool designed to show the FMS algorithm votes for an ivs dump (initialization vectors) with a specified WEP key. The ivs dump can be get by using the combination of both airodump(1) and ivstools(1).",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target inferred from tool synopsis",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "makeivs_ng_run",
+      "binary": "makeivs-ng",
+      "enabled": true,
+      "category": "utility",
+      "description": "makeivs-ng is a tool designed to generate an IVS dump file with an inputted WEP key. The aim of is tools is to provide a way to create dumps with a known encryption key for tests.",
+      "parameters": [
+        {
+          "name": "p",
+          "description": "or --prng",
+          "type": "string",
+          "required": true,
+          "argStyle": "kv",
+          "flag": "-p"
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "nc_run",
+      "binary": "nc",
+      "enabled": true,
+      "category": "utility",
+      "description": "netcat is a simple unix utility which reads and writes data across network connections, using TCP or UDP protocol. It is designed to be a reliable \"back-end\" tool that can be used directly or easily driven by other programs and scripts....",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "display help",
+          "type": "string",
+          "required": true,
+          "argStyle": "kv",
+          "flag": "-h"
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "netcat_run",
+      "binary": "netcat",
+      "enabled": true,
+      "category": "utility",
+      "description": "netcat is a simple unix utility which reads and writes data across network connections, using TCP or UDP protocol. It is designed to be a reliable \"back-end\" tool that can be used directly or easily driven by other programs and scripts....",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "display help",
+          "type": "string",
+          "required": true,
+          "argStyle": "kv",
+          "flag": "-h"
+        }
+      ],
+      "allowAdditionalArgs": true,
+      "manPage": "nc"
+    },
+    {
+      "name": "nping_run",
+      "binary": "nping",
+      "enabled": true,
+      "category": "utility",
+      "description": "Nping is an open-source tool for network packet generation, response analysis and response time measurement. Nping allows users to generate network packets of a wide range of protocols, letting them tune virtually any field of the protoc...",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target inferred from tool synopsis",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "proxychains4_run",
+      "binary": "proxychains4",
+      "enabled": true,
+      "category": "utility",
+      "description": "This program forces any tcp connection made by any given tcp client to follow through proxy (or proxy chain). It is a kind of proxifier.",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target inferred from tool synopsis",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true,
+      "manPage": "proxychains"
+    },
+    {
+      "name": "responder_multirelay_run",
+      "binary": "responder-MultiRelay",
+      "enabled": true,
+      "category": "utility",
+      "description": "Installed tool: responder-MultiRelay",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "socat_run",
+      "binary": "socat",
+      "enabled": true,
+      "category": "utility",
+      "description": "Socat is a command line based utility that establishes two bidirectional byte streams and transfers data between them. Because the streams can be constructed from a large set of different types of data sinks and sources (see address type...",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "| -?",
+          "type": "string",
+          "required": true,
+          "argStyle": "kv",
+          "flag": "-h"
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "besside_ng_crawler_run",
+      "binary": "besside-ng-crawler",
+      "enabled": true,
+      "category": "web",
+      "description": "besside-ng-crawler",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target inferred from tool synopsis",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "commix_run",
+      "binary": "commix",
+      "enabled": true,
+      "category": "web",
+      "description": "Command injection exploitation tool",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "curl_run",
+      "binary": "curl",
+      "enabled": true,
+      "category": "web",
+      "description": "curl is a tool for transferring data from or to a server using URLs. It supports these protocols: DICT, FILE, FTP, FTPS, GOPHER, GOPHERS, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, MQTT, MQTTS, POP3, POP3S, RTSP, SCP, SFTP, SMB, SMBS, SMTP,...",
+      "parameters": [
+        {
+          "name": "url",
+          "description": "Target URL",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 0
+        },
+        {
+          "name": "include_headers",
+          "description": "Include response headers in output",
+          "type": "boolean",
+          "required": false,
+          "argStyle": "flag",
+          "default": true,
+          "flag": "-i"
+        }
+      ],
+      "allowAdditionalArgs": true,
+      "fixedArgs": [
+        "-sS",
+        "-L",
+        "--max-time",
+        "30"
+      ]
+    },
+    {
+      "name": "dirb_run",
+      "binary": "dirb",
+      "enabled": true,
+      "category": "web",
+      "description": "DIRB IS a Web Content Scanner. It looks for existing (and/or hidden) Web Objects. It basically works by launching a dictionary basesd attack against a web server and analizing the response.",
+      "parameters": [
+        {
+          "name": "H",
+          "description": "<header_string>",
+          "type": "string",
+          "required": true,
+          "argStyle": "kv",
+          "flag": "-H"
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "ffuf_run",
+      "binary": "ffuf",
+      "enabled": true,
+      "category": "web",
+      "description": "ffuf is a fest web fuzzer written in Go that allows typical directory discovery, virtual host discovery (without DNS records) and GET and POST parameter fuzzing.",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target inferred from tool synopsis",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "nikto_run",
+      "binary": "nikto",
+      "enabled": true,
+      "category": "web",
+      "description": "Examine a web server to find potential problems and security vulnerabilities, including:",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Target host or URL",
+          "type": "string",
+          "required": true,
+          "argStyle": "kv",
+          "flag": "-h"
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "recon_web_run",
+      "binary": "recon-web",
+      "enabled": true,
+      "category": "web",
+      "description": "Recon-web is the analytics and reporting engine for Recon-ng. This is a web-based user interface. The user just need to open the printed URL in a browser to begin. It also includes the Recon-API, which can be accessed via the `/api/` URL.",
+      "parameters": [
+        {
+          "name": "host",
+          "description": "HOST IP",
+          "type": "string",
+          "required": true,
+          "argStyle": "kv",
+          "flag": "--host"
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "sqlmap_run",
+      "binary": "sqlmap",
+      "enabled": true,
+      "category": "web",
+      "description": "___",
+      "parameters": [
+        {
+          "name": "url",
+          "description": "Target URL",
+          "type": "string",
+          "required": true,
+          "argStyle": "kv",
+          "flag": "-u"
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "wget_run",
+      "binary": "wget",
+      "enabled": true,
+      "category": "web",
+      "description": "GNU Wget is a free utility for non-interactive download of files from the Web. It supports HTTP, HTTPS, and FTP protocols, as well as retrieval through HTTP proxies.",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target inferred from tool synopsis",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "wpscan_run",
+      "binary": "wpscan",
+      "enabled": true,
+      "category": "web",
+      "description": "WordPress Security Scanner by the WPScan Team",
+      "parameters": [
+        {
+          "name": "url",
+          "description": "Target WordPress URL",
+          "type": "string",
+          "required": true,
+          "argStyle": "kv",
+          "flag": "--url"
+        }
+      ],
+      "allowAdditionalArgs": true,
+      "fixedArgs": [
+        "--no-update"
+      ]
+    },
+    {
+      "name": "zap_sh_run",
+      "binary": "zap.sh",
+      "enabled": true,
+      "category": "web",
+      "description": "OWASP ZAP launcher",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_karmasmb_run",
+      "binary": "impacket-karmaSMB",
+      "enabled": true,
+      "category": "windows",
+      "description": "Installed tool: impacket-karmaSMB",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_psexec_run",
+      "binary": "impacket-psexec",
+      "enabled": true,
+      "category": "windows",
+      "description": "Impacket PsExec client",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_rpcmap_run",
+      "binary": "impacket-rpcmap",
+      "enabled": true,
+      "category": "windows",
+      "description": "Installed tool: impacket-rpcmap",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_sambapipe_run",
+      "binary": "impacket-sambaPipe",
+      "enabled": true,
+      "category": "windows",
+      "description": "Installed tool: impacket-sambaPipe",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_secretsdump_run",
+      "binary": "impacket-secretsdump",
+      "enabled": true,
+      "category": "windows",
+      "description": "Impacket secrets dumper",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_smbclient_run",
+      "binary": "impacket-smbclient",
+      "enabled": true,
+      "category": "windows",
+      "description": "Impacket SMB client",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_smbexec_run",
+      "binary": "impacket-smbexec",
+      "enabled": true,
+      "category": "windows",
+      "description": "Installed tool: impacket-smbexec",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_smbpasswd_run",
+      "binary": "impacket-smbpasswd",
+      "enabled": true,
+      "category": "windows",
+      "description": "Installed tool: impacket-smbpasswd",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_smbrelayx_run",
+      "binary": "impacket-smbrelayx",
+      "enabled": true,
+      "category": "windows",
+      "description": "Installed tool: impacket-smbrelayx",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "impacket_smbserver_run",
+      "binary": "impacket-smbserver",
+      "enabled": true,
+      "category": "windows",
+      "description": "Installed tool: impacket-smbserver",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "responder_run",
+      "binary": "responder",
+      "enabled": true,
+      "category": "windows",
+      "description": "LLMNR/NBT-NS/mDNS poisoner",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "rpcclient_run",
+      "binary": "rpcclient",
+      "enabled": true,
+      "category": "windows",
+      "description": "This tool is part of the samba(7) suite.",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target inferred from tool synopsis",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "smbclient_run",
+      "binary": "smbclient",
+      "enabled": true,
+      "category": "windows",
+      "description": "This tool is part of the samba(7) suite.",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target inferred from tool synopsis",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "aircrack_ng_run",
+      "binary": "aircrack-ng",
+      "enabled": true,
+      "category": "wireless",
+      "description": "aircrack-ng is an 802.11 WEP, 802.11i WPA/WPA2, and 802.11w WPA2 key cracking program.",
+      "parameters": [
+        {
+          "name": "p",
+          "description": "<nbcpu>",
+          "type": "string",
+          "required": true,
+          "argStyle": "kv",
+          "flag": "-p"
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "airdecap_ng_run",
+      "binary": "airdecap-ng",
+      "enabled": true,
+      "category": "wireless",
+      "description": "airdecap-ng decrypts a WEP/WPA crypted pcap file to a unencrypted one by using the right WEP/WPA keys.",
+      "parameters": [
+        {
+          "name": "p",
+          "description": "<pass>",
+          "type": "string",
+          "required": true,
+          "argStyle": "kv",
+          "flag": "-p"
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "aireplay_ng_run",
+      "binary": "aireplay-ng",
+      "enabled": true,
+      "category": "wireless",
+      "description": "aireplay-ng is used to inject/replay frames. The primary function is to generate traffic for the later use in aircrack-ng for cracking the WEP and WPA-PSK keys. There are different attacks which can cause deauthentications for the purpos...",
+      "parameters": [
+        {
+          "name": "url",
+          "description": "<type>",
+          "type": "string",
+          "required": true,
+          "argStyle": "kv",
+          "flag": "-u"
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "airmon_ng_run",
+      "binary": "airmon-ng",
+      "enabled": true,
+      "category": "wireless",
+      "description": "airmon-ng This script can be used to enable monitor mode on wireless interfaces. It may also be used to go back from monitor mode to managed mode. Entering the airmon-ng command without parameters will show the interfaces status. It can...",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target inferred from tool synopsis",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "airodump_ng_run",
+      "binary": "airodump-ng",
+      "enabled": true,
+      "category": "wireless",
+      "description": "airodump-ng is used for packet capturing of raw 802.11 frames for the intent of using them with aircrack-ng. If you have a GPS receiver connected to the computer, airodump-ng is capable of logging the coordinates of the found access poin...",
+      "parameters": [
+        {
+          "name": "url",
+          "description": "<secs>, --update <secs>",
+          "type": "string",
+          "required": true,
+          "argStyle": "kv",
+          "flag": "-u"
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "airventriloquist_ng_run",
+      "binary": "airventriloquist-ng",
+      "enabled": true,
+      "category": "wireless",
+      "description": "airventriloquist-ng injects on encrypted WiFi packet and circumvents wireless intrusion prevention systems.",
+      "parameters": [
+        {
+          "name": "p",
+          "description": "<value>, --passphrase <value>",
+          "type": "string",
+          "required": true,
+          "argStyle": "kv",
+          "flag": "-p"
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "reaver_run",
+      "binary": "reaver",
+      "enabled": true,
+      "category": "wireless",
+      "description": "Reaver implements a brute force attack against WiFi Protected Setup which can crack the WPS pin of an access point in a matter of hours and subsequently recover the WPA/WPA2 passphrase.",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target inferred from tool synopsis",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "wifite_run",
+      "binary": "wifite",
+      "enabled": true,
+      "category": "wireless",
+      "description": "Wifite is a tool to audit WEP or WPA encrypted wireless networks. It uses aircrack-ng, pyrit, reaver, tshark tools to perform the audit.",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target inferred from tool synopsis",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "wpaclean_run",
+      "binary": "wpaclean",
+      "enabled": true,
+      "category": "wireless",
+      "description": "wpaclean Cleans capture files to get only the 4-way handshake and a beacon.",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target inferred from tool synopsis",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    },
+    {
+      "name": "wpapcap2john_run",
+      "binary": "wpapcap2john",
+      "enabled": true,
+      "category": "wireless",
+      "description": "Installed tool: wpapcap2john",
+      "parameters": [
+        {
+          "name": "target",
+          "description": "Primary target (host, URL, file, or path)",
+          "type": "string",
+          "required": true,
+          "argStyle": "positional",
+          "position": 99
+        }
+      ],
+      "allowAdditionalArgs": true
+    }
+  ]
+}

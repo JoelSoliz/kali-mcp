@@ -9,6 +9,7 @@ import sys
 from kali_mcp.backend import LocalBackend
 from kali_mcp.config import load_config
 from kali_mcp.remote_client import KaliApiClient
+from kali_mcp.remote_sync import load_config_from_remote, validate_remote_tools
 from kali_mcp.tool_registry import ToolRegistry, create_mcp_server, create_remote_registry
 
 logger = logging.getLogger(__name__)
@@ -37,6 +38,11 @@ def parse_args() -> argparse.Namespace:
         default=300,
         help="HTTP request timeout in seconds when using --remote (default: 300)",
     )
+    parser.add_argument(
+        "--use-remote-config",
+        action="store_true",
+        help="Load tool definitions from the Kali API config instead of local JSON",
+    )
     parser.add_argument("--debug", action="store_true", help="Enable debug logging")
     parser.add_argument(
         "--no-warm-cache",
@@ -56,7 +62,7 @@ def main() -> None:
     )
 
     try:
-        config = load_config(args.config)
+        config, config_path = load_config(args.config)
     except FileNotFoundError as exc:
         logger.error("%s", exc)
         sys.exit(1)
@@ -69,9 +75,29 @@ def main() -> None:
             logger.warning("MCP will start, but tool execution may fail until the API is available")
         else:
             logger.info("Connected to Kali API at %s (%s)", args.remote, health.get("status"))
+            if health.get("config_path"):
+                logger.info("Remote API config: %s", health["config_path"])
+
+        if args.use_remote_config:
+            remote_config = load_config_from_remote(client)
+            if remote_config:
+                config = remote_config
+                logger.info("Using remote tool config from Kali API")
+            else:
+                logger.warning("Falling back to local config: %s", config_path)
+
+        missing = validate_remote_tools(config, client)
+        if missing:
+            logger.warning(
+                "Local tool names not found on Kali API: %s. "
+                "Use the same config on both hosts or add --use-remote-config.",
+                ", ".join(missing),
+            )
+
         registry = create_remote_registry(config, args.remote, timeout=args.timeout)
     else:
         registry = ToolRegistry(config, backend=LocalBackend())
+        registry.config_path = str(config_path)
         if not args.no_warm_cache:
             logger.info("Warming tool metadata cache (man pages and versions)...")
             registry.warm_cache()

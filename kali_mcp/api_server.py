@@ -42,8 +42,13 @@ def create_app(registry: ToolRegistry) -> Flask:
                 "tool_count": len(tools),
                 "installed_tool_count": installed,
                 "mode": "api",
+                "config_path": registry.config_path,
             }
         ), 200
+
+    @app.get("/api/config")
+    def get_config() -> tuple[dict, int]:
+        return jsonify(config_to_dict(config)), 200
 
     @app.get("/api/tools")
     def list_tools() -> tuple[dict, int]:
@@ -75,7 +80,7 @@ def create_app(registry: ToolRegistry) -> Flask:
 
     @app.get("/api/tools/<tool_name>")
     def get_tool(tool_name: str) -> tuple[dict, int]:
-        tool = registry.find_tool(tool_name)
+        tool = registry.find_tool(tool_name) or registry.find_tool_by_binary(tool_name)
         if not tool:
             return jsonify({"success": False, "error": f"Unknown tool: {tool_name}"}), 404
 
@@ -103,7 +108,7 @@ def create_app(registry: ToolRegistry) -> Flask:
 
     @app.post("/api/tools/<tool_name>/execute")
     def execute_tool(tool_name: str) -> tuple[dict, int]:
-        tool = registry.find_tool(tool_name)
+        tool = registry.find_tool(tool_name) or registry.find_tool_by_binary(tool_name)
         if not tool or not tool.enabled:
             return jsonify({"success": False, "error": f"Tool not found or disabled: {tool_name}"}), 404
 
@@ -165,12 +170,13 @@ def main() -> None:
     )
 
     try:
-        config = load_config(args.config)
+        config, config_path = load_config(args.config)
     except FileNotFoundError as exc:
         logger.error("%s", exc)
         sys.exit(1)
 
     registry = ToolRegistry(config, backend=LocalBackend())
+    registry.config_path = str(config_path)
     if not args.no_warm_cache:
         logger.info("Warming tool metadata cache...")
         registry.warm_cache()
