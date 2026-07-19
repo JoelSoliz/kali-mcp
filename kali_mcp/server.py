@@ -8,6 +8,7 @@ import sys
 
 from kali_mcp.backend import LocalBackend
 from kali_mcp.config import load_config
+from kali_mcp.tool_call_log import configure_tool_call_logger, set_execution_context
 from kali_mcp.remote_client import KaliApiClient
 from kali_mcp.remote_sync import load_config_from_remote, validate_remote_tools
 from kali_mcp.tool_registry import ToolRegistry, create_mcp_server, create_remote_registry
@@ -49,6 +50,12 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Skip pre-loading man/version metadata at startup",
     )
+    parser.add_argument(
+        "--log-file",
+        type=str,
+        default=None,
+        help="JSONL audit log for tool executions when running locally (default: logs/tool-calls.jsonl)",
+    )
     return parser.parse_args()
 
 
@@ -60,6 +67,9 @@ def main() -> None:
         format="%(asctime)s [%(levelname)s] %(message)s",
         handlers=[logging.StreamHandler(sys.stderr)],
     )
+
+    if not args.remote:
+        configure_tool_call_logger(args.log_file)
 
     try:
         config, config_path = load_config(args.config)

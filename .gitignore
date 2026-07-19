@@ -9,4 +9,5 @@ build/
 .ruff_cache/
 .env
 *.log
+logs/*.jsonl
 config/kali-mcp.generated.json

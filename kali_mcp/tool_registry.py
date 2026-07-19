@@ -10,6 +10,7 @@ from mcp.server.fastmcp import FastMCP
 from kali_mcp.backend import ExecutionBackend, LocalBackend, RemoteBackend
 from kali_mcp.config_writer import config_to_dict
 from kali_mcp.discovery import build_config_from_discovery, discover_installed_tools
+from kali_mcp.tool_call_log import set_execution_context
 from kali_mcp.remote_client import KaliApiClient
 from kali_mcp.schema import ParameterDef, ServerConfig, ToolDef
 
@@ -117,6 +118,7 @@ class ToolRegistry:
         if not tool or not tool.enabled:
             return {"success": False, "error": f"Tool not found or disabled: {tool_name}"}
 
+        set_execution_context(source="mcp")
         return self.backend.execute_tool(tool, arguments, self.config)
 
     def register_with_mcp(self, mcp: FastMCP) -> int:

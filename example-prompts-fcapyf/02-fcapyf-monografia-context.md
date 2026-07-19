@@ -150,18 +150,18 @@ Base: `pentesting-results/`
 ```
 pentesting-results/
   phases/
-    01-pre-compromiso/
     02-inteligencia/
-    03-modelado-amenazas/
-    04-analisis-vulnerabilidades/
-    05-explotacion/
-    06-post-explotacion/
-    07-informe/
+      artifact.json
+      raw/
+        whatweb.txt
+        whatweb.meta.json    ← tool + parameters + call_id (obligatorio)
   findings/
-    F-001-slug.json
   reports/
-    phase-02-inteligencia.md
+  templates/
+    raw-output.meta.template.json
 ```
+
+**Regla de raw:** cada `raw/*.txt` o `raw/*.json` lleva sidecar `*.meta.json` con `tool`, `parameters`, `call_id` (de la respuesta MCP). Sin sidecar = evidencia incompleta.
 
 Convención de IDs de hallazgo: `F-NNN` (ej. `F-001-depicter-missing-auth`).
 

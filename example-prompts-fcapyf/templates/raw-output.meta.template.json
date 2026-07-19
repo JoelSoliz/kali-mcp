@@ -1,0 +1,15 @@
+{
+  "$schema": "pentesting-results raw output metadata",
+  "call_id": "",
+  "timestamp": "2026-07-16T00:00:00-04:00",
+  "tool": "whatweb_fingerprint",
+  "parameters": {},
+  "attempt": 1,
+  "phase_ptes": "intelligence",
+  "wstg_id": "WSTG-INFO-02",
+  "exit_status": "success",
+  "timed_out": false,
+  "partial_results": false,
+  "output_ref": "phases/02-inteligencia/raw/whatweb.txt",
+  "server_log_ref": "kali-mcp/logs/tool-calls.jsonl"
+}

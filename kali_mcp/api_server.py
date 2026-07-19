@@ -12,6 +12,7 @@ from kali_mcp.backend import LocalBackend
 from kali_mcp.config import load_config
 from kali_mcp.config_writer import config_to_dict
 from kali_mcp.discovery import build_config_from_discovery, discover_installed_tools
+from kali_mcp.tool_call_log import configure_tool_call_logger, get_tool_call_logger, set_execution_context
 from kali_mcp.tool_registry import ToolRegistry
 
 logger = logging.getLogger(__name__)
@@ -43,6 +44,7 @@ def create_app(registry: ToolRegistry) -> Flask:
                 "installed_tool_count": installed,
                 "mode": "api",
                 "config_path": registry.config_path,
+                "tool_call_log": str(get_tool_call_logger().log_path),
             }
         ), 200
 
@@ -118,6 +120,7 @@ def create_app(registry: ToolRegistry) -> Flask:
 
         payload = request.get_json(silent=True) or {}
         arguments = payload.get("arguments", {})
+        set_execution_context(source="api", client_ip=request.remote_addr)
         result = backend.execute_tool(tool, arguments, config)
         return jsonify(result), 200
 
@@ -161,6 +164,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--port", type=int, default=DEFAULT_PORT, help="Bind port (default: 5000)")
     parser.add_argument("--debug", action="store_true", help="Enable Flask debug mode")
     parser.add_argument("--no-warm-cache", action="store_true", help="Skip man/version pre-load")
+    parser.add_argument(
+        "--log-file",
+        type=str,
+        default=None,
+        help="JSONL audit log for tool executions (default: logs/tool-calls.jsonl)",
+    )
     return parser.parse_args()
 
 
@@ -172,6 +181,8 @@ def main() -> None:
         format="%(asctime)s [%(levelname)s] %(message)s",
         handlers=[logging.StreamHandler(sys.stdout)],
     )
+
+    configure_tool_call_logger(args.log_file)
 
     try:
         config, config_path = load_config(args.config)

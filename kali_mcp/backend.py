@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import logging
+import time
 from typing import Any, Protocol
 
 from kali_mcp.command_builder import CommandBuildError, build_command
@@ -10,6 +11,7 @@ from kali_mcp.executor import run_command
 from kali_mcp.introspection import build_tool_metadata
 from kali_mcp.remote_client import KaliApiClient
 from kali_mcp.schema import ServerConfig, ToolDef
+from kali_mcp.tool_call_log import get_tool_call_logger
 
 logger = logging.getLogger(__name__)
 
@@ -37,12 +39,32 @@ class LocalBackend:
         )
 
     def execute_tool(self, tool: ToolDef, arguments: dict[str, Any], config: ServerConfig) -> dict[str, Any]:
+        started = time.monotonic()
+        timeout = tool.timeout or config.defaults.timeout
+        audit = get_tool_call_logger()
+
         try:
             command = build_command(tool, arguments)
         except CommandBuildError as exc:
-            return {"success": False, "error": str(exc), "tool": tool.name}
+            result: dict[str, Any] = {
+                "success": False,
+                "error": str(exc),
+                "tool": tool.name,
+                "binary": tool.binary,
+                "timeout_seconds": timeout,
+            }
+            call_id = audit.log_tool_call(
+                tool=tool.name,
+                binary=tool.binary,
+                parameters=arguments,
+                command=None,
+                result=result,
+                duration_ms=(time.monotonic() - started) * 1000,
+                error=str(exc),
+            )
+            result["call_id"] = call_id
+            return result
 
-        timeout = tool.timeout or config.defaults.timeout
         result = run_command(
             command,
             timeout=timeout,
@@ -51,6 +73,16 @@ class LocalBackend:
         )
         result["tool"] = tool.name
         result["binary"] = tool.binary
+        result["timeout_seconds"] = timeout
+        call_id = audit.log_tool_call(
+            tool=tool.name,
+            binary=tool.binary,
+            parameters=arguments,
+            command=command,
+            result=result,
+            duration_ms=(time.monotonic() - started) * 1000,
+        )
+        result["call_id"] = call_id
         return result
 
     def warm_metadata(self, tools: list[ToolDef], config: ServerConfig) -> dict[str, dict[str, Any]]:
